@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<include file="cn/cqupt/wss/demo1/strutsDemo1.xml"></include>
+	<include file="cn/cqupt/wss/demo2/strutsDemo2.xml"></include>
+	<include file="cn/cqupt/wss/demo3/strutsDemo3.xml"></include>
+</struts>

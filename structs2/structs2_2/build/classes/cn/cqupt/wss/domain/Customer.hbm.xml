@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-12-1 18:55:18 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="cn.cqupt.wss.domain.Customer" table="CUSTOMER">
+        <id name="cust_id" type="java.lang.Long">
+            <column name="CUST_ID" />
+            <generator class="native" />
+        </id>
+        <property name="cust_name" type="java.lang.String">
+            <column name="CUST_NAME" />
+        </property>
+        <property name="cust_source" type="java.lang.String">
+            <column name="CUST_SOURCE" />
+        </property>
+        <property name="cust_industry" type="java.lang.String">
+            <column name="CUST_INDUSTRY" />
+        </property>
+        <property name="cust_level" type="java.lang.String">
+            <column name="CUST_LEVEL" />
+        </property>
+        <property name="cust_phone" type="java.lang.String">
+            <column name="CUST_PHONE" />
+        </property>
+        <property name="cust_mobile" type="java.lang.String">
+            <column name="CUST_MOBILE" />
+        </property>
+    </class>
+</hibernate-mapping>

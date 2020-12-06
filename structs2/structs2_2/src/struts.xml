@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="customer" extends="json-default" namespace="/" strict-method-invocation="false">
+		<action name="customer_*" class="cn.cqupt.wss.web.action.CustomerAction" method="{1}">
+			<result name="findSuccess">/jsp/customer/list.jsp</result>
+			<result name="saveUI">/jsp/customer/add.jsp</result>
+			<result name="saveSuccess" type="redirectAction">customer_find.action</result>
+			<allowed-methods>find,saveUI,save</allowed-methods>
+		</action>
+	</package>
+</struts>

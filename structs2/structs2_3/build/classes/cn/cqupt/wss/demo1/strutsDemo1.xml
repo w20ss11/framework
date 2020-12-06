@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+
+	<!-- 开启动态方法访问 -->
+	<!--<constant name="struts.enable.DynamicMethodInvocation" value="true"/> -->
+	
+	<!-- 配置Struts2的包 ================ -->
+	<package name="demo1" extends="json-default" namespace="/">
+	
+		<!-- 全局结果页面 -->
+		<global-results>
+			<result>/demo1/success.jsp</result><!-- 只要返回success就跳转到success.jsp -->
+		</global-results>
+	
+		<action name="requestDemo1" class="cn.cqupt.wss.demo1.RequestDemo1">
+			<result type="redirect">/demo1/success.jsp</result>
+		</action>
+		<action name="requestDemo2" class="cn.cqupt.wss.demo1.RequestDemo2">
+		</action>
+		<action name="requestDemo3" class="cn.cqupt.wss.demo1.RequestDemo3">
+		</action>
+	</package>
+	
+</struts>

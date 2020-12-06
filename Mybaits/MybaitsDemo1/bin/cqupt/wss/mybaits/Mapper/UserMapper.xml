@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:命名空间，用于隔离sql语句 
+	#{}:占位符，相当于jdbc的?
+	${}:字符串拼接指令，如果入参为普通数据类型，{}只能写value
+-->
+
+
+<!--动态代理开发规则
+	1.namespace必须是接口的全路径名
+	2.接口的方法名必须与sql id一致
+	3.接口的入参必须与parameterType类型一致
+	4.接口的返回值必须与resultType类型一致
+-->
+<mapper namespace="cqupt.wss.mybaits.Mapper.UserMapper">
+	
+	<!-- id: sql id语句的唯一标识
+		parameterType：入参的数据类型
+		resultType：返回结果的数据类型
+	 -->
+	<select id="getUserById" parameterType="int" resultType="cqupt.wss.mybaits.pojo.User">
+		SELECT 
+		  `id`,
+		  `username`,
+		  `birthday`,
+		  `sex`,
+		  `address` 
+		FROM `user` 
+		WHERE id = #{id}
+	</select>
+	
+	<!-- 如果返回结果为集合值，只需设置为每一个元素的数据类型 -->
+	<select id="getUserByUserName" parameterType="string" resultType="cqupt.wss.mybaits.pojo.User">
+		SELECT 
+		  `id`,
+		  `username`,
+		  `birthday`,
+		  `sex`,
+		  `address` 
+		FROM `user` 
+		<!-- WHERE username LIKE #{name} -->
+		WHERE username LIKE '%${value}%'
+	</select>
+	
+	<!-- 插入用户 -->
+	<insert id="insertUser" parameterType="cqupt.wss.mybaits.pojo.User" 
+	useGeneratedKeys="true" keyProperty="id"><!-- 下方selectKey的简写 -->
+		<!-- selectKey:主键返回
+			 keyProperty:user中的主键属性
+			 resultType:主键数据类型
+			 order:指定selectKey何时执行
+			 在插入user之后，将id返回给user的id属性-->
+		<!-- <selectKey keyProperty="id" resultType="int" order="AFTER">
+			SELECT LAST_INSERT_ID()
+		</selectKey> -->
+		INSERT INTO `user`(`username`,`birthday`,`sex`,`address`)
+		VALUES(#{username},#{birthday},#{sex},#{address});
+	</insert>
+</mapper>
